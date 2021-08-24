@@ -42,6 +42,8 @@ You have the following routes available.
 - [Google Routes Spreadsheet](https://docs.google.com/spreadsheets/d/14-LHKXLtEkp_vKEz3qSKjREnrmSyzQ9fimTlmrPsZsQ/edit#gid=0)
 - [JSON Web Tokens](https://jwt.io/)
 
+This List application uses Node.js, Postgres, Express and EJS.  It also uses HTML, CSS and javascript.  This list application was based on the fruit app which was developed in class earler.  It uses MVC archecture as well as 7 restful routes and full CRUD.  Enjoy setting up an account and lets get shopping!
+
 As a dbt create home page so users can access the site
 AC: home page created
 
@@ -62,3 +64,12 @@ AC:  Users have delete an item function.
 
 As a dbt create update functionality so users can edit list items.
 AC:  Users have update an item function.
+
+As a dbt create navigation such that users and move around the site and use its functionality.
+AC: Add navigation so users can move around the site.
+
+As a dbt add styling to the site to make it more appealing to the users.
+AC  Add styling such that user would enjoy something more than not having styling.
+
+As a dbt create a db structure such that storename and list of items can be stored.
+AC:  Table created being able to hold storename and a list of items.

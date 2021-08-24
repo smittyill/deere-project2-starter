@@ -8,28 +8,25 @@
   </head>
 
   <body>
-    <h1><%= user.username %>'s New List Page</h1>
+    <h1>Edit Lists Page</h1>
+    <form action="/lists/<%= list.id %>?_method=PUT" method="POST">
+	
+	
+        <br>        
+              Store Name:
+              <input type="text" name="storename" value='<%=list.storename%>' /><br />
+              <br />
+              Store items:
+              <textarea name="items" id="" cols="30" rows="10" value='<%=list.items%>'></textarea>
+            <br />
+              <br />
+            
+        </select>
+        <br>
+        <br>
 
-    <form action="/users/profile/<%=user.id%>?_method=PUT" method="POST">
-      User: <input type="text" name="user" value="<%=user.name%>" /><br />
-      <br />
-      Item name:
-      <input type="text" name="itemName" />
-      <br />
-      <br />
-      Store itemName:
-      <input type="text" name="storeName"  /><br />
-      <br />
-      Quantity:
-      <input type="text" name="quantity"  /><br />
-      <br />
-      <input type="submit" value="EDIT Item" />
-    </form>
-    <br />
-    <form action="/item/<%= item.id %>?_method=EDIT" method="POST">
-      <input type="submit" value="Edit Item" />
-    </form>
-
+		<input type="submit" value="Edit List">
+	</form>
     <br /><br />
     <a href="/">Back to Homepage</a>
   </body>
