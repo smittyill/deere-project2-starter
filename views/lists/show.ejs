@@ -13,18 +13,22 @@
     <form action="/users/profile/<%=user.id%>?_method=PUT" method="POST">
       Name: <input type="text" name="name" value="<%=user.name%>" /><br />
       <br />
-      Username:
-      <input type="text" name="username" value="<%=user.username%>" />
+      Item name:
+      <input type="text" name="itemName" value="<%=item.itemname%>" />
       <br />
       <br />
-      Password:
-      <input type="text" name="password" value="<%=user.password%>" /><br />
+      Item Category:
+      <input type="text" name="itemCategory" value="<%=item.category%>" /><br />
       <br />
-      <input type="submit" value="Edit Profile" />
+      Item Quantity:
+      <input type="text" name="itemCategory" value="<%=item.category%>" /><br />
+      <br />
+
+      <input type="submit" value="Delete item" />
     </form>
     <br />
-    <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete User" />
+    <form action="/item/<%= item.id %>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete Item" />
     </form>
 
     <br /><br />
