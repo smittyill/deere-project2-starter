@@ -29,6 +29,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
+app.use((req, res, next) => {
+  let logStr = `${req.method} ${req.url}`;
+
+  if (Object.keys(req.body).length !== 0) {
+    logStr += ` -- DATA: ${JSON.stringify(req.body)}`;
+  }
+
+  console.log(logStr);
+  next();
+});
+
 // HOMEPAGE
 app.get("/", (req, res) => {
   res.render("users/index.ejs");

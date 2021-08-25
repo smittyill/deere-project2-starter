@@ -3,6 +3,13 @@ const router = express.Router();
 const List = require("../models").List;
 const User = require("../models").User;
 
+//NEW list
+router.get("/new", (req, res) => {
+    res.render("lists/new.ejs", {
+        user: req.user
+    })
+});
+
 // Show
 router.get("/:id", (req, res) => {
     List.findByPk(req.params.id).then((list) => {    
@@ -16,12 +23,6 @@ router.get("/:id", (req, res) => {
     });
   });
 
-//NEW list
-router.get("/new", (req, res) => {
-    res.render("lists/new.ejs", {
-        user: req.user
-    })
-});
 //add
 router.post("/", (req, res) =>{
     console.log("list is" + List);
@@ -33,6 +34,7 @@ router.post("/", (req, res) =>{
 //get all
 router.get("/", (req, res) => {
     List.findAll({ order: ["id"] }).then((lists) => {
+        
       res.render("lists/index.ejs", {
         lists,
       });
