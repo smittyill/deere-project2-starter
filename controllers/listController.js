@@ -26,6 +26,7 @@ router.get("/:id", (req, res) => {
 //add
 router.post("/", (req, res) =>{
     console.log("list is" + List);
+    req.body.userId = req.user.id;
     List.create(req.body).then((newList) => {
         
         res.redirect("/lists");
@@ -33,7 +34,8 @@ router.post("/", (req, res) =>{
 })
 //get all
 router.get("/", (req, res) => {
-    List.findAll({ order: ["id"] }).then((lists) => {
+    List.findAll({ order: ["id"], where: {userId: req.user.id} }).then((lists) => {
+        console.log("user is"+ req.user.id)
         
       res.render("lists/index.ejs", {
         lists,
