@@ -21,7 +21,9 @@
             <li>
                 Store items: <%=lists[i].items%>   
 			</li>
-
+            <li>
+            <a href="/lists/<%= lists[i].id %>">Show Me</a>
+        </li>
 			<form action="/lists/<%= lists[i].id %>?_method=DELETE" method='POST'>
 					<input type="submit" value="Delete">
 			</form>

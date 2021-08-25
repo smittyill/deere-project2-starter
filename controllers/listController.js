@@ -2,13 +2,27 @@ const express = require("express");
 const router = express.Router();
 const List = require("../models").List;
 const User = require("../models").User;
+
+// Show
+router.get("/:id", (req, res) => {
+    List.findByPk(req.params.id).then((list) => {    
+        console.log(list);
+        res.render(
+          "lists/show.ejs", //render views/edit.ejs
+          {
+           list
+          }
+        );
+    });
+  });
+
 //NEW list
 router.get("/new", (req, res) => {
     res.render("lists/new.ejs", {
         user: req.user
     })
 });
-
+//add
 router.post("/", (req, res) =>{
     console.log("list is" + List);
     List.create(req.body).then((newList) => {
@@ -16,6 +30,7 @@ router.post("/", (req, res) =>{
         res.redirect("/lists");
       });    
 })
+//get all
 router.get("/", (req, res) => {
     List.findAll({ order: ["id"] }).then((lists) => {
       res.render("lists/index.ejs", {
@@ -23,7 +38,7 @@ router.get("/", (req, res) => {
       });
     });
   });
- 
+ //edit
   router.get("/:id/edit", (req, res) => {
     List.findByPk(req.params.id).then((list) => {
       
@@ -36,6 +51,7 @@ router.get("/", (req, res) => {
         );
     });
   });
+  //update
 router.put("/:id",(req,res) => {
     List.update(req.body, {
         where: {id: req.params.id },
@@ -45,6 +61,7 @@ router.put("/:id",(req,res) => {
         res.redirect("/lists");
     }))
 })
+//delete
 router.delete("/:id", (req, res) => {
     List.destroy({ where: { id: req.params.id } }).then(() => {
       res.redirect("/lists"); //redirect back to index route

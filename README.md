@@ -44,6 +44,11 @@ You have the following routes available.
 
 This List application uses Node.js, Postgres, Express and EJS.  It also uses HTML, CSS and javascript.  This list application was based on the fruit app which was developed in class earler.  It uses MVC archecture as well as 7 restful routes and full CRUD.  Enjoy setting up an account and lets get shopping!
 
+App link:
+https://todd-smiths-list-app.herokuapp.com/
+
+User Stories:
+
 As a dbt create home page so users can access the site
 AC: home page created
 

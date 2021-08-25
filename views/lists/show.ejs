@@ -11,15 +11,21 @@
     <h1>Lists Show Page</h1>
     <nav><a href="/lists/new">Create a new List</a>
     </nav>
+  </br></br>
+    <%=list.storename%> 
+  </br></br>
+    <%=list.items%>
+  </br>
+</br></br>
     <ul>
-        <% for(let i=0; i<lists.length; i++) { %>
+        <% for(let i=0; i<list.length; i++) { %>
             <br /> <br />
             <li>
-                Store Name: <%=lists[i].storename%> 
+                Store Name: <%=list[i].storename%> 
 			</li>
             <br />
             <li>
-                Store items: <%=lists[i].items%>   
+                Store items: <%=list[i].items%>   
 			</li>
 
 			<form action="/lists/<%= lists[i].id %>?_method=DELETE" method='POST'>
